@@ -13,15 +13,14 @@
             <table class="table table-striped">
                 <thead>
                     <th>Id</th>
-                    <th>Title</th>
-                    <th>Content</th>
+                    <th>Name</th>
                     <th>Slug</th>
                 </thead>
                 <tbody>
                     @foreach($technologies as $technology)
                     <tr>
                         <td>{{$technology->id}}</td>
-                        <td>{{$technology->title}}</td>
+                        <td>{{$technology->name}}</td>
                         <td>{{$technology->slug}}</td>
                         {{-- <td>
                             <a href="{{ route('admin.technologies.show', $technology->slug)}}" title="Visualizza technologies" class="btn btn-sm btn-square btn-primary">

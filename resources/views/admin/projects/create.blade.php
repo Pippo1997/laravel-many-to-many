@@ -43,6 +43,17 @@
                 </select>
             </div>
             <div class="form-group my-3">
+                <label class="control-label">
+                    Tecnologie
+                </label>
+                @foreach ($technologies as $technology)
+                <div class="form-check @error('technologies') is-invalid @enderror">
+                    <input type="checkbox" class="form-check-input" value="{{$technology->name}}" name="technologies[]">
+                    <label class="form-check-label">{{ $technology->name }}</label>
+                </div>
+                @endforeach
+            </div>
+            <div class="form-group my-3">
                 <button type="submit" class="btn btn-sm btn-success">Salva Project</button>
             </div>
             </form>
