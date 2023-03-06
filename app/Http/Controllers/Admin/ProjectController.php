@@ -53,7 +53,11 @@ class ProjectController extends Controller
         $newProject->fill($form_data);
         $newProject->save();
 
-        return redirect()->route('admin.projects.index')->with('message'. ' il Project creato correttamente');
+        if($request->has('technologies')){
+            $newProject->technologies()->attach($request->technologies);
+        }
+
+        return redirect()->route('admin.projects.index')->with('message'. ' creato correttamente');
     }
 
     /**
@@ -76,7 +80,8 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $types = Type::all();
-        return view('admin.projects.edit', compact('project','types'));
+        $technologies = Technology::all();
+        return view('admin.projects.edit', compact('project','types', 'technologies'));
     }
 
     /**
@@ -95,7 +100,7 @@ class ProjectController extends Controller
 
         $project->update($form_data);
 
-        return redirect()->route('admin.projects.index')->with('message', $project->title.' Il Project è stato correttamente aggiornato');
+        return redirect()->route('admin.projects.index')->with('message', $project->title.' è stato correttamente aggiornato');
     }
 
     /**
@@ -108,6 +113,6 @@ class ProjectController extends Controller
     {
         $project->delete();
 
-        return redirect()->route('admin.projects.index')->with('message', $project->title.' Il Project cancellato correttamente');
+        return redirect()->route('admin.projects.index')->with('message', $project->title.' cancellato correttamente');
     }
 }
