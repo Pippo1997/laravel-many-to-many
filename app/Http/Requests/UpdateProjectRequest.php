@@ -27,7 +27,8 @@ class UpdateProjectRequest extends FormRequest
         return [
             'title' => ['required', Rule::unique('projects')->ignore($this->project), 'max:150'],
             'content' => ['nullable'],
-            'type_id' => ['nullable', 'exists:types,id']
+            'type_id' => ['nullable', 'exists:types,id'],
+            'technologies' => ['exists:technologies,id']
         ];
     }
 
@@ -38,6 +39,7 @@ class UpdateProjectRequest extends FormRequest
             'title.unique' => 'E\ già presente questo titolo',
             'title.max' => 'Il titolo può essere lungo al massimo 150 cratteri',
             'type_id.exists' => 'Il Tipo selezionato non è valido',
+            'technologies.exists' => 'La tecnologia selezionata non è valida selezionato non è valido'
         ];
     }
 }
