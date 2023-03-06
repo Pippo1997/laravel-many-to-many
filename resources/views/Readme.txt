@@ -16,7 +16,7 @@
 //Copio nell'edit cio fatto per il create e creo un controllo per i tag che sono gia utilizzati tramite la funzione old
 //IF ->  Edit = <input value="{{$tag->id}}" name="tags[]" {{ in_array($tags->id, old('tags' [])) ? 'checked : '' }}> label...
 //ELSE -> Edit = <input value="{{$tag->id}}" name="tags[]" {{ $project->tags->contains($tag) ? 'checked : '' }}> label...
-Recupero i tags in Update e faccio il controllo con if
+//Recupero i tags in Update e faccio il controllo con if
 Inserisco tags in show
 Modifico il delete
 
