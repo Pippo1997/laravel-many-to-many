@@ -43,6 +43,27 @@
                 </select>
             </div>
             <div class="form-group my-3">
+                <label class="control-label">
+                    Tecnologie
+                </label>
+                @foreach ($technologies as $technology)
+                <div>
+
+                    @if ($error->any())
+                    {{-- PRIMO --}}
+                    <input type="checkbox" class="form-check-input" value="{{ $technology->id }}" name="technologies[]" {{ in_array($technologies->id, old('technologies' [])) ? 'checked' : '' }}>
+                    <label class="form-check-label">{{ $technology->name }}</label>
+                    
+                    @else
+                    {{-- SECONDO --}}
+                    <input type="checkbox" class="form-check-input" value="{{ $technology->id }}" name="technologies[]" {{ $project->technologies->contains($technology) ? 'checked' : '' }}>
+                    <label class="form-check-label">{{ $technology->name }}</label>
+                    @endif
+
+                </div>
+                @endforeach
+            </div>
+            <div class="form-group my-3">
                 <button type="submit" class="btn btn-sm btn-success">Salva Project</button>
             </div>
             </form>
