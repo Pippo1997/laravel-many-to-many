@@ -2,7 +2,7 @@ Lancio -> php a artisan make:model Tag -rcms --resource
 Modifico la "tag" tabel
 Modifico la "tag" seeder e aggiuno il foreach come in type
 Lancio il comando php seed
-Nel model tag aggiungo lstr generateSlug
+Nel model tag aggiungo str generateSlug
 Creo nuova migration php artisan make:migration create_project_technology_table
 Creo la colonna per il Project ($tabel->unsigendBigIteger) e creo la colonna per il tag ($tabel->unsigendBigIteger) aggiungo foreing key
 Modifico il file web aggiungendo le risorse e sposto il tag controller dentro admin aggiungendo "use"
