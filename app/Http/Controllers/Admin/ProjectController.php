@@ -48,6 +48,10 @@ class ProjectController extends Controller
         $slug = Project::generateSlug($request->title, '-');
 
         $form_data['slug'] = $slug;
+        
+        // aggiungo
+
+        $form_data['slug'] = $slug;
 
         $newProject = new Project();
         $newProject->fill($form_data);

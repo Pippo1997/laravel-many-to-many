@@ -17,6 +17,7 @@
             <label class="d-block"><strong>Contenuto:</strong></label>
             <p>{{ $project->content }}</p>
             <p><strong>Tipo: </strong>{{ $project->type ?  $project->type->name : 'senza tipo'}}</p>
+            <p><strong>Tecnologia: </strong>{{ $project->technology ?  $project->technology->name : 'senza tecnologia'}}</p>
         </div>
     </div>
 </div>

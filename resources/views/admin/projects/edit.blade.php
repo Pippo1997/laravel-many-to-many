@@ -47,11 +47,11 @@
                     Tecnologie
                 </label>
                 @foreach ($technologies as $technology)
-                <div class="form-check">
+                <div class="form-check @error('technologies') is-invalid @enderror">
 
-                    @if ($error->any())
+                    @if ($errors->any())
                     {{-- PRIMO --}}
-                    <input type="checkbox" class="form-check-input" value="{{ $technology->id }}" name="technologies[]" {{ in_array($technology->id, old('technologies' [])) ? 'checked' : '' }}>
+                    <input type="checkbox" class="form-check-input" value="{{ $technology->id }}" name="technologies[]" {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
                     <label class="form-check-label">{{ $technology->name }}</label>
                     
                     @else
@@ -62,6 +62,9 @@
 
                 </div>
                 @endforeach
+                @error('technologies')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="form-group my-3">
                 <button type="submit" class="btn btn-sm btn-success">Salva Project</button>

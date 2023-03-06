@@ -52,6 +52,9 @@
                     <label class="form-check-label">{{ $technology->name }}</label>
                 </div>
                 @endforeach
+                @error('technologies')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="form-group my-3">
                 <button type="submit" class="btn btn-sm btn-success">Salva Project</button>

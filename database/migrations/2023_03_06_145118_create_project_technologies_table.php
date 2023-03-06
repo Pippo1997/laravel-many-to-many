@@ -21,7 +21,7 @@ return new class extends Migration
             //aggiungo foreing key
             $table->foreign('project_id')->references('id')->on('projects')->cascadeOnDelete();
 
-            // colonna per technlogy
+            // colonna per technology
             $table->unsignedBigInteger('technology_id');
             //aggiungo foreing key
             $table->foreign('technology_id')->references('id')->on('technologies')->cascadeOnDelete();
